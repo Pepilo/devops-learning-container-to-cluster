@@ -1,0 +1,17 @@
+services:
+  php:
+    container_name: php-myapp
+    build: .
+    restart: unless-stopped
+    depends-on:
+      postgres: service_healthy
+    heathcheck:
+      test:
+      start_period: 15s
+    
+
+  postgres:
+
+volumes:
+
+networks:
